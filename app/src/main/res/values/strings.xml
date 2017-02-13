@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TourMate</string>
+    <string name="tourmate">TourMate</string>
+    <string name="login">LogIn</string>
+    <string name="register">Register</string>
+    <string name="back_to_login">Back to login</string>
+    <string name="logout">Logout</string>
+    <string name="you_are_logged_in">You are logged in</string>
+</resources>
