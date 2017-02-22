@@ -12,7 +12,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/tourmate"
+        android:text="@string/mess_manager"
         android:textColor="@android:color/white"
         android:textSize="30sp"
         android:layout_gravity="center_horizontal"

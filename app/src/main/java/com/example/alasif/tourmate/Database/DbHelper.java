@@ -18,6 +18,7 @@ public class DbHelper extends SQLiteOpenHelper {
             + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
             + COLUMN_EMAIL + " TEXT,"
             + COLUMN_PASS + " TEXT);";
+
     public DbHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
     }
