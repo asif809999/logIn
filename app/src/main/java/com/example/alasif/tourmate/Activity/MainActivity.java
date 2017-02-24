@@ -1,6 +1,7 @@
 package com.example.alasif.tourmate.Activity;
 
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -14,11 +15,13 @@ public class MainActivity extends AppCompatActivity {
     TextView loggedinTv;
     Button logoutBtn;
     Session session;
+    FloatingActionButton addNewEventsFaBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        addNewEventsFaBtn = (FloatingActionButton) findViewById(R.id.eventAddButton);
 
         loggedinTv = (TextView) findViewById(R.id.loggedInTextView);
         logoutBtn = (Button) findViewById(R.id.logoutButton);
@@ -40,5 +43,11 @@ public class MainActivity extends AppCompatActivity {
         session.setLoggedin(false);
         finish();
         startActivity(new Intent(MainActivity.this,Login.class));
-    }                                                                  // End of login part
+    } // End of login part
+
+
+    public void addNewEvent(View view) {
+        // go to AddEvents Activity
+        startActivity(new Intent(MainActivity.this,AddEvents.class));
+    }
 }
