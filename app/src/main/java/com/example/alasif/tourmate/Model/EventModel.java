@@ -19,11 +19,11 @@ public class EventModel {
         this.eventEndDate = eventEndDate;
     }
 
-    public EventModel(String eventEndDate, String eventStartDate, String eventLocationName, String eventStartFrom, int loggedInUserId) {
-        this.eventEndDate = eventEndDate;
-        this.eventStartDate = eventStartDate;
-        this.eventLocationName = eventLocationName;
+    public EventModel(String eventStartFrom, String eventLocationName, String eventStartDate,String eventEndDate,int loggedInUserId) {
         this.eventStartFrom = eventStartFrom;
+        this.eventLocationName = eventLocationName;
+        this.eventStartDate = eventStartDate;
+        this.eventEndDate = eventEndDate;
         this.loggedInUserId = loggedInUserId;
     }
 
@@ -59,5 +59,9 @@ public class EventModel {
 
     public int getLoggedInUserId() {
         return loggedInUserId;
+    }
+    @Override
+    public String toString() {
+        return getEventLocationName();
     }
 }

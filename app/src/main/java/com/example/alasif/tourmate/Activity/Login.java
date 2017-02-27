@@ -15,6 +15,7 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
     private Button loginBtn,registerBtn;
     private RegisterDatabaseSource registerDatabaseSource;
     private Session session;
+    private int currentLoggedInUserId ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,8 +52,11 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
         String password = passwordEt.getText().toString();
 
         if(registerDatabaseSource.getUser(email,password)){
-            session.setLoggedin(true);                                   // User authenticated
-            startActivity(new Intent(Login.this,MainActivity.class));
+            session.setLoggedin(true);
+            int currentLoggedInUserId = registerDatabaseSource.getUserID(email);
+            Intent nextIntent = new Intent(Login.this, MainActivity.class);
+            nextIntent.putExtra("userId",currentLoggedInUserId);
+            startActivity(nextIntent);
             finish();
         }
         else{

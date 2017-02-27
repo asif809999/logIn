@@ -50,4 +50,13 @@ public class RegisterDatabaseSource {
         this.close();
         return false;
     }
+
+    public int getUserID(String email){
+        this.open();
+        Cursor cursor = database.query(dbHelper.USER_TABLE,null, dbHelper.COLUMN_EMAIL + " = '"+ email+"' " ,null,null,null,null);
+        cursor.moveToFirst();
+        int uID = cursor.getInt(cursor.getColumnIndex(dbHelper.COLUMN_USER_ID));
+        this.close();
+        return uID;
+    }
 }

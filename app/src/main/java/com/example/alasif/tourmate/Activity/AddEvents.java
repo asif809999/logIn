@@ -2,18 +2,28 @@ package com.example.alasif.tourmate.Activity;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import com.example.alasif.tourmate.Database.EventDatabaseSource;
+import com.example.alasif.tourmate.Model.EventModel;
 import com.example.alasif.tourmate.R;
 import java.util.Calendar;
 
 public class AddEvents extends AppCompatActivity {
 
-    EditText startDateEditText, endDateEditText;
+    EventDatabaseSource eventDatabaseSource;
+    EventModel eventModel;
+    boolean status;
+    int currentLoggedInUserId;
+
+    EditText startDateEditText, endDateEditText, eventStartingPlaceEditText,eventDestinationEditText;
+    String startDate,endDate,eventStartingPlace,eventDestination;
     int from_year, from_month, from_day,to_year,to_month,to_day;
     static final int DIALOG_ID_FOR_START_DATE = 0;
     static final int DIALOG_ID_FOR_END_DATE = 1;
@@ -22,6 +32,9 @@ public class AddEvents extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_events);
+
+        eventStartingPlaceEditText = (EditText) findViewById(R.id.eventStartingPlace);
+        eventDestinationEditText = (EditText) findViewById(R.id.eventLocation);
 
         //initialize to current date/month/year
         final Calendar calendar = Calendar.getInstance();
@@ -36,6 +49,8 @@ public class AddEvents extends AppCompatActivity {
 
         showDialogForStartDate();
         showDialogForEndDate();
+
+       // eventModel = new EventModel()
     }
     // show the date dialog box for the start date
     public void showDialogForStartDate(){
@@ -100,4 +115,27 @@ public class AddEvents extends AppCompatActivity {
             endDateEditText.setText(date);
         }
     };
+
+    /**
+     * insert data into the local database
+     * @param view
+     */
+    public void insertTourInfoIntoTheDatabase(View view) {
+        currentLoggedInUserId = getIntent().getIntExtra("loggedinUserId", 0);
+        eventStartingPlace = eventStartingPlaceEditText.getText().toString();
+        eventDestination = eventDestinationEditText.getText().toString();
+        startDate = startDateEditText.getText().toString();
+        endDate = endDateEditText.getText().toString();
+        eventModel = new EventModel(eventStartingPlace, eventDestination, startDate, endDate,currentLoggedInUserId);
+        eventDatabaseSource = new EventDatabaseSource(this);
+        status = eventDatabaseSource.addEvent(eventModel);
+        Toast.makeText(this, String.valueOf(status), Toast.LENGTH_SHORT).show();
+        Intent nextIntent = new Intent(AddEvents.this,MainActivity.class);
+        startActivity(nextIntent);
+    }
+
+    public void cancelAddingNewTour(View view) {
+        Intent nextIntent = new Intent(AddEvents.this,MainActivity.class);
+        startActivity(nextIntent);
+    }
 }

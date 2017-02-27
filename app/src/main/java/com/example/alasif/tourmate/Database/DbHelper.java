@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class DbHelper extends SQLiteOpenHelper {
 
     public static final String DB_NAME = "tourmate.db";
-    public static final int DB_VERSION = 5;
+    public static final int DB_VERSION = 6;
     public static final String USER_TABLE = "users";
     public static final String COLUMN_USER_ID = "_id";
     public static final String COLUMN_EMAIL = "email";
@@ -36,8 +36,8 @@ public class DbHelper extends SQLiteOpenHelper {
             + COLUMN_EVENT_LOCATION + " TEXT,"
             + COLUMN_EVENT_START_DATE + " TEXT,"
             + COLUMN_EVENT_END_DATE + " TEXT,"
-            + COLUMN_USER_ID_FOREIGNKEY + " INTEGER,"
-            + " FOREIGN KEY ("+COLUMN_USER_ID_FOREIGNKEY+") REFERENCES "+USER_TABLE+"("+ COLUMN_USER_ID +"));";
+            + COLUMN_USER_ID_FOREIGNKEY + " INTEGER);";
+
 
     public DbHelper(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -52,7 +52,7 @@ public class DbHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
         sqLiteDatabase.execSQL(" DROP TABLE IF EXISTS "+ USER_TABLE);
-        sqLiteDatabase.execSQL(" DROP TABLE IF EXISTS "+ CREATE_EVENT_TABLE);
+        sqLiteDatabase.execSQL(" DROP TABLE IF EXISTS "+ EVENT_TABLE);
         onCreate(sqLiteDatabase);
     }
 

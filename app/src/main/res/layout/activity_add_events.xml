@@ -16,7 +16,7 @@
         android:layout_height="wrap_content">
 
         <EditText
-            android:id="@+id/eventName"
+            android:id="@+id/eventStartingPlace"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="tour from"
@@ -43,7 +43,7 @@
             android:id="@+id/eventStartDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="event_start_date"
+            android:hint="strating date of the tour"
             />
     </android.support.design.widget.TextInputLayout>
 
@@ -55,8 +55,41 @@
             android:id="@+id/eventEndDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="event_end_date"
+            android:hint="ending date of the tour"
             />
     </android.support.design.widget.TextInputLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add tour"
+            android:textAllCaps="false"
+            android:id="@+id/addTourButton"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:onClick="insertTourInfoIntoTheDatabase"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAllCaps="false"
+            android:text="Cancel"
+            android:id="@+id/cancelButton"
+            android:layout_marginRight="14dp"
+            android:layout_marginEnd="14dp"
+            android:layout_alignParentTop="true"
+            android:layout_toLeftOf="@+id/addTourButton"
+            android:layout_toStartOf="@+id/addTourButton"
+            android:onClick="cancelAddingNewTour"
+            />
+
+    </RelativeLayout>
+
 
 </LinearLayout>

@@ -43,9 +43,10 @@ public class EventDatabaseSource {
 
     /**
      * add new events
-     * @param eventModel reference
+     * @param eventModel pass data inside the database
+     * @return insertion status
      */
-    public void addEvent(EventModel eventModel){
+    public boolean addEvent(EventModel eventModel){
         this.open();
 
         ContentValues contentValues=new ContentValues();
@@ -54,11 +55,13 @@ public class EventDatabaseSource {
         contentValues.put(DbHelper.COLUMN_EVENT_START_DATE,eventModel.getEventStartDate());
         contentValues.put(DbHelper.COLUMN_EVENT_END_DATE,eventModel.getEventEndDate());
         contentValues.put(DbHelper.COLUMN_USER_ID_FOREIGNKEY,eventModel.getLoggedInUserId());
-
         long inserted=sqLiteDatabase.insert(DbHelper.EVENT_TABLE,null,contentValues);
-
         this.close();
-
+        if(inserted>0){
+            return true;
+        }else {
+            return false;
+        }
     }
 
     /**
