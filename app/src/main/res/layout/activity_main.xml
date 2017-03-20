@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -11,6 +11,11 @@
     android:orientation="vertical"
     >
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -20,11 +25,27 @@
             android:id="@+id/loggedInTextView"
             />
 
+        <android.support.v7.widget.RecyclerView
+            android:background="#BBDEFB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/eventsRecyclerView"
+            >
+
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+
+
+
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="125dp"
         android:orientation="horizontal"
-        >
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
 
         <Button
             android:layout_width="match_parent"
@@ -49,4 +70,4 @@
     </RelativeLayout>
 
 
-</LinearLayout>
+</RelativeLayout>

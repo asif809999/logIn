@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_margin="4dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="From: "
+                android:textSize="20sp"
+                android:textColor="@android:color/holo_purple"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="null"
+                android:id="@+id/startingLocationTextView"
+                android:textSize="20sp"
+                android:textColor="@android:color/holo_red_light"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Start : "
+                android:textSize="20sp"
+                android:textColor="@android:color/holo_purple"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="21/2/2017"
+                android:id="@+id/startingDateTextView"
+                android:textSize="20sp"
+                android:textColor="@android:color/holo_red_light"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_margin="4dp"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To: "
+                android:textSize="20sp"
+                android:textColor="@android:color/holo_purple"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="null plus"
+                android:id="@+id/destinationTextView"
+                android:textSize="20sp"
+                android:textColor="@android:color/holo_red_light"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="End: "
+                android:textSize="20sp"
+                android:textColor="@android:color/holo_purple"
+                />
+            <TextView
+                android:textColor="@android:color/holo_red_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="24/2/2017"
+                android:id="@+id/endDateTextView"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>

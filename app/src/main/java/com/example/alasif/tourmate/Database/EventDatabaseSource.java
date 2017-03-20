@@ -75,7 +75,8 @@ public class EventDatabaseSource {
         String currentLoggedInUserId = loggedUserId;
         ArrayList<EventModel> eventModels = new ArrayList<>();
         this.read();
-        Cursor cursor = sqLiteDatabase.query(dbHelper.EVENT_TABLE,null,dbHelper.COLUMN_USER_ID_FOREIGNKEY+" = "+currentLoggedInUserId,null,null,null,null);
+        Cursor cursor = sqLiteDatabase.rawQuery("select * from "+DbHelper.EVENT_TABLE
+                +" where "+DbHelper.COLUMN_USER_ID_FOREIGNKEY+"='"+currentLoggedInUserId+"'",null);
         if(cursor!=null && cursor.getCount()>0){
             cursor.moveToFirst();
             for(int i=0;i<cursor.getCount();i++){

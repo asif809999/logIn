@@ -121,7 +121,7 @@ public class AddEvents extends AppCompatActivity {
      * @param view
      */
     public void insertTourInfoIntoTheDatabase(View view) {
-        currentLoggedInUserId = getIntent().getIntExtra("loggedinUserId", 0);
+        currentLoggedInUserId = getIntent().getIntExtra("userId",0);
         eventStartingPlace = eventStartingPlaceEditText.getText().toString();
         eventDestination = eventDestinationEditText.getText().toString();
         startDate = startDateEditText.getText().toString();
@@ -132,10 +132,12 @@ public class AddEvents extends AppCompatActivity {
         Toast.makeText(this, String.valueOf(status), Toast.LENGTH_SHORT).show();
         Intent nextIntent = new Intent(AddEvents.this,MainActivity.class);
         startActivity(nextIntent);
+        //finish();
     }
 
     public void cancelAddingNewTour(View view) {
         Intent nextIntent = new Intent(AddEvents.this,MainActivity.class);
         startActivity(nextIntent);
+        //finish();
     }
 }

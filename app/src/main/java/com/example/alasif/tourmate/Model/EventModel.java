@@ -1,5 +1,7 @@
 package com.example.alasif.tourmate.Model;
 
+import java.util.ArrayList;
+
 /**
  * Created by asif on 2/23/17.
  */
@@ -10,7 +12,8 @@ public class EventModel {
     private int loggedInUserId;
     private String eventStartFrom,eventLocationName, eventStartDate, eventEndDate;
 
-    public EventModel(int id, int loggedInUserId, String eventStartFrom, String eventLocationName, String eventStartDate, String eventEndDate) {
+    public EventModel(int id, int loggedInUserId, String eventStartFrom, String eventLocationName,
+                      String eventStartDate, String eventEndDate) {
         this.id = id;
         this.loggedInUserId = loggedInUserId;
         this.eventStartFrom = eventStartFrom;
@@ -19,15 +22,27 @@ public class EventModel {
         this.eventEndDate = eventEndDate;
     }
 
-    public EventModel(String eventStartFrom, String eventLocationName, String eventStartDate,String eventEndDate,int loggedInUserId) {
+    public EventModel(int id, String eventStartFrom, String eventLocationName, String eventStartDate,
+                      String eventEndDate) {
+        this.id = id;
         this.eventStartFrom = eventStartFrom;
         this.eventLocationName = eventLocationName;
         this.eventStartDate = eventStartDate;
         this.eventEndDate = eventEndDate;
+    }
+
+    public EventModel(String eventStartFrom, String eventLocationName, String eventStartDate,
+                      String eventEndDate, int loggedInUserId) {
+        this.eventStartFrom = eventStartFrom;
+        this.eventLocationName = eventLocationName;
+        this.eventStartDate = eventStartDate;
+
+        this.eventEndDate = eventEndDate;
         this.loggedInUserId = loggedInUserId;
     }
 
-    public EventModel(String eventStartFrom, String eventLocationName, String eventStartDate, String eventEndDate) {
+    public EventModel(String eventStartFrom, String eventLocationName, String eventStartDate,
+                      String eventEndDate) {
         this.eventStartFrom = eventStartFrom;
         this.eventLocationName = eventLocationName;
         this.eventStartDate = eventStartDate;
@@ -64,4 +79,10 @@ public class EventModel {
     public String toString() {
         return getEventLocationName();
     }
+
+    /*public ArrayList<EventModel> getAllEvents(){
+        ArrayList<EventModel>events=new ArrayList<>();
+        events.add(new EventModel());
+        return events;
+    }*/
 }
